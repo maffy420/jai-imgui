@@ -738,10 +738,10 @@ ColorConvertFloat4ToU32        :: (in: ImVec4) -> u32 {
             }
 ColorConvertHSVtoRGB           :: (h: float, s: float, v: float, out_r: *float, out_g: *float, out_b: *float) #foreign imgui_lib "?ColorConvertHSVtoRGB@ImGui@@YAXMMMAEAM00@Z";
 ColorConvertRGBtoHSV           :: (r: float, g: float, b: float, out_h: *float, out_s: *float, out_v: *float) #foreign imgui_lib "?ColorConvertRGBtoHSV@ImGui@@YAXMMMAEAM00@Z";
-ColorEdit3                     :: (label: *u8, col: [3]float, flags: ColorEditFlags = .None) -> bool #foreign imgui_lib "?ColorEdit3@ImGui@@YA_NPEBDQEAMH@Z";
-ColorEdit4                     :: (label: *u8, col: [4]float, flags: ColorEditFlags = .None) -> bool #foreign imgui_lib "?ColorEdit4@ImGui@@YA_NPEBDQEAMH@Z";
-ColorPicker3                   :: (label: *u8, col: [3]float, flags: ColorEditFlags = .None) -> bool #foreign imgui_lib "?ColorPicker3@ImGui@@YA_NPEBDQEAMH@Z";
-ColorPicker4                   :: (label: *u8, col: [4]float, flags: ColorEditFlags = .None, ref_col: *float = null) -> bool #foreign imgui_lib "?ColorPicker4@ImGui@@YA_NPEBDQEAMHPEBM@Z";
+ColorEdit3                     :: (label: *u8, col: *float, flags: ColorEditFlags = .None) -> bool #foreign imgui_lib "?ColorEdit3@ImGui@@YA_NPEBDQEAMH@Z";
+ColorEdit4                     :: (label: *u8, col: *float, flags: ColorEditFlags = .None) -> bool #foreign imgui_lib "?ColorEdit4@ImGui@@YA_NPEBDQEAMH@Z";
+ColorPicker3                   :: (label: *u8, col: *float, flags: ColorEditFlags = .None) -> bool #foreign imgui_lib "?ColorPicker3@ImGui@@YA_NPEBDQEAMH@Z";
+ColorPicker4                   :: (label: *u8, col: *float, flags: ColorEditFlags = .None, ref_col: *float = null) -> bool #foreign imgui_lib "?ColorPicker4@ImGui@@YA_NPEBDQEAMHPEBM@Z";
 Columns                        :: (count: s32 = 1, id: string = "", border: bool = true) {
     _internal_Columns :: (count: s32, id: *u8, border: bool) #foreign imgui_lib "?Columns@ImGui@@YAXHPEBD_N@Z";
     _internal_Columns(count, id.data, border);
@@ -916,9 +916,9 @@ InputFloat4                    :: (label: *u8, v: [4]float, format: string = "%.
     return _internal_InputFloat4(label, v.data, format.data, flags);
             }
 InputInt                       :: (label: *u8, v: *s32, step: s32 = 1, step_fast: s32 = 100, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt@ImGui@@YA_NPEBDPEAHHHH@Z";
-InputInt2                      :: (label: *u8, v: [2]s32, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt2@ImGui@@YA_NPEBDQEAHH@Z";
-InputInt3                      :: (label: *u8, v: [3]s32, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt3@ImGui@@YA_NPEBDQEAHH@Z";
-InputInt4                      :: (label: *u8, v: [4]s32, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt4@ImGui@@YA_NPEBDQEAHH@Z";
+InputInt2                      :: (label: *u8, v: *s32, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt2@ImGui@@YA_NPEBDQEAHH@Z";
+InputInt3                      :: (label: *u8, v: *s32, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt3@ImGui@@YA_NPEBDQEAHH@Z";
+InputInt4                      :: (label: *u8, v: *s32, flags: InputTextFlags = .None) -> bool #foreign imgui_lib "?InputInt4@ImGui@@YA_NPEBDQEAHH@Z";
 InputScalar                    :: (label: *u8, data_type: DataType, p_data: *void, p_step: *void = null, p_step_fast: *void = null, format: string = "", flags: InputTextFlags = .None) -> bool {
     _internal_InputScalar :: (label: *u8, data_type: DataType, p_data: *void, p_step: *void, p_step_fast: *void, format: *u8, flags: InputTextFlags) -> bool #foreign imgui_lib "?InputScalar@ImGui@@YA_NPEBDHPEAXPEBX20H@Z";
     return _internal_InputScalar(label, data_type, p_data, p_step, p_step_fast, format.data, flags);
@@ -1561,7 +1561,7 @@ ImFontAtlas :: struct {
     GetGlyphRangesKorean                      :: (self: *ImFontAtlas) -> *ImWchar #foreign imgui_lib "?GetGlyphRangesKorean@ImFontAtlas@@QEAAPEBGXZ";
     GetGlyphRangesThai                        :: (self: *ImFontAtlas) -> *ImWchar #foreign imgui_lib "?GetGlyphRangesThai@ImFontAtlas@@QEAAPEBGXZ";
     GetGlyphRangesVietnamese                  :: (self: *ImFontAtlas) -> *ImWchar #foreign imgui_lib "?GetGlyphRangesVietnamese@ImFontAtlas@@QEAAPEBGXZ";
-    GetMouseCursorTexData                     :: (self: *ImFontAtlas, cursor: MouseCursor, out_offset: *ImVec2, out_size: *ImVec2, out_uv_border: [2]ImVec2, out_uv_fill: [2]ImVec2) -> bool #foreign imgui_lib "?GetMouseCursorTexData@ImFontAtlas@@QEAA_NHPEAUImVec2@@0QEAU2@1@Z";
+    GetMouseCursorTexData                     :: (self: *ImFontAtlas, cursor: MouseCursor, out_offset: *ImVec2, out_size: *ImVec2, out_uv_border: *ImVec2, out_uv_fill: *ImVec2) -> bool #foreign imgui_lib "?GetMouseCursorTexData@ImFontAtlas@@QEAA_NHPEAUImVec2@@0QEAU2@1@Z";
     GetTexDataAsAlpha8                        :: (self: *ImFontAtlas, out_pixels: **u8, out_width: *s32, out_height: *s32, out_bytes_per_pixel: *s32 = null) #foreign imgui_lib "?GetTexDataAsAlpha8@ImFontAtlas@@QEAAXPEAPEAEPEAH11@Z";
     GetTexDataAsRGBA32                        :: (self: *ImFontAtlas, out_pixels: **u8, out_width: *s32, out_height: *s32, out_bytes_per_pixel: *s32 = null) #foreign imgui_lib "?GetTexDataAsRGBA32@ImFontAtlas@@QEAAXPEAPEAEPEAH11@Z";
 }
