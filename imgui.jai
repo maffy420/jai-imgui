@@ -859,6 +859,8 @@ GetID                          :: (str_id: *u8) -> ID #foreign imgui_lib "?GetID
 GetID                          :: (str_id_begin: *u8, str_id_end: *u8) -> ID #foreign imgui_lib "?GetID@ImGui@@YAIPEBD0@Z";
 GetID                          :: (ptr_id: *void) -> ID #foreign imgui_lib "?GetID@ImGui@@YAIPEBX@Z";
 GetIO                          :: () -> *IO #foreign imgui_lib "?GetIO@ImGui@@YAAEAUImGuiIO@@XZ";
+GetItemRectMin                 :: () -> ImVec2 #cpp_return_type_is_non_pod #foreign imgui_lib "?GetItemRectMin@ImGui@@YA?AUImVec2@@XZ";
+GetItemRectMax                 :: () -> ImVec2 #cpp_return_type_is_non_pod #foreign imgui_lib "?GetItemRectMax@ImGui@@YA?AUImVec2@@XZ";
 GetKeyIndex                    :: (imgui_key: Key) -> s32 #foreign imgui_lib "?GetKeyIndex@ImGui@@YAHH@Z";
 GetKeyPressedAmount            :: (key_index: s32, repeat_delay: float, rate: float) -> s32 #foreign imgui_lib "?GetKeyPressedAmount@ImGui@@YAHHMM@Z";
 GetMainViewport                :: () -> *Viewport #foreign imgui_lib "?GetMainViewport@ImGui@@YAPEAUImGuiViewport@@XZ";
