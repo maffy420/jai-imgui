@@ -713,7 +713,12 @@ BeginTabBar                    :: (str_id: *u8, flags: TabBarFlags = .None) -> b
 BeginTabItem                   :: (label: *u8, p_open: *bool = null, flags: TabItemFlags = .None) -> bool #foreign imgui_lib "?BeginTabItem@ImGui@@YA_NPEBDPEA_NH@Z";
 BeginTooltip                   :: () #foreign imgui_lib "?BeginTooltip@ImGui@@YAXXZ";
 Bullet                         :: () #foreign imgui_lib "?Bullet@ImGui@@YAXXZ";
-BulletText                     :: (fmt: *u8, args: ..Any) #foreign imgui_lib "?BulletText@ImGui@@YAXPEBDZZ";
+_BulletText                     :: (fmt: *u8, args: ..Any) #foreign imgui_lib "?BulletText@ImGui@@YAXPEBDZZ";
+BulletText :: (fmt: string, args: .. Any) {
+    text := tprint(fmt, ..args);
+    _BulletText(temp_c_string(text));
+}
+
 Button                         :: (label: *u8, size: ImVec2 = ImVec2.{0,0}) -> bool {
     _internal_Button :: (label: *u8, size: *ImVec2) -> bool #foreign imgui_lib "?Button@ImGui@@YA_NPEBDAEBUImVec2@@@Z";
     return _internal_Button(label, *size);
