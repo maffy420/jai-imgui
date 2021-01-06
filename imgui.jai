@@ -959,7 +959,7 @@ IsKeyReleased                  :: (user_key_index: s32) -> bool #foreign imgui_l
 IsMouseClicked                 :: (button: MouseButton, repeat: bool = false) -> bool #foreign imgui_lib "?IsMouseClicked@ImGui@@YA_NH_N@Z";
 IsMouseDoubleClicked           :: (button: MouseButton) -> bool #foreign imgui_lib "?IsMouseDoubleClicked@ImGui@@YA_NH@Z";
 IsMouseDown                    :: (button: MouseButton) -> bool #foreign imgui_lib "?IsMouseDown@ImGui@@YA_NH@Z";
-IsMouseDragging                :: (button: MouseButton, lock_threshold: float = 1.0) -> bool #foreign imgui_lib "?IsMouseDragging@ImGui@@YA_NHM@Z";
+IsMouseDragging                :: (button: MouseButton, lock_threshold: float = -1.0) -> bool #foreign imgui_lib "?IsMouseDragging@ImGui@@YA_NHM@Z";
 IsMouseHoveringRect            :: (r_min: ImVec2, r_max: ImVec2, clip: bool = true) -> bool {
     _internal_IsMouseHoveringRect :: (r_min: *ImVec2, r_max: *ImVec2, clip: bool) -> bool #foreign imgui_lib "?IsMouseHoveringRect@ImGui@@YA_NAEBUImVec2@@0_N@Z";
     return _internal_IsMouseHoveringRect(*r_min, *r_max, clip);
