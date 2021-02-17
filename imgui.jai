@@ -1788,7 +1788,7 @@ ListClipper :: struct {
     ItemsHeight: float;
     StartPosY: float;
 
-    Begin     :: (self: *ListClipper, items_count: s32, items_height: float = 1.0) #foreign imgui_lib "?Begin@ImGuiListClipper@@QEAAXHM@Z";
+    Begin     :: (self: *ListClipper, items_count: s32, items_height: float = -1.0) #foreign imgui_lib "?Begin@ImGuiListClipper@@QEAAXHM@Z";
     End       :: (self: *ListClipper) #foreign imgui_lib "?End@ImGuiListClipper@@QEAAXXZ";
     Step      :: (self: *ListClipper) -> bool #foreign imgui_lib "?Step@ImGuiListClipper@@QEAA_NXZ";
 }
