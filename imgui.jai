@@ -1943,6 +1943,7 @@ TextFilter :: struct {
     CountGrep: s32;
 
     Build          :: (self: *TextFilter) #foreign imgui_lib "?Build@ImGuiTextFilter@@QEAAXXZ";
+    Clear          :: (self: *TextFilter) { self.InputBuf[0] = 0; self.Build(self); }
     Draw           :: (self: *TextFilter, label: string = "Filter(inc,-exc)", width: float = 0.0) -> bool {
     _internal_Draw :: (self: *TextFilter, label: *u8, width: float) -> bool #foreign imgui_lib "?Draw@ImGuiTextFilter@@QEAA_NPEBDM@Z";
     return _internal_Draw(self, label.data, width);
