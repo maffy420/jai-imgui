@@ -870,6 +870,9 @@ GetKeyIndex                    :: (imgui_key: Key) -> s32 #foreign imgui_lib "?G
 GetKeyPressedAmount            :: (key_index: s32, repeat_delay: float, rate: float) -> s32 #foreign imgui_lib "?GetKeyPressedAmount@ImGui@@YAHHMM@Z";
 GetMainViewport                :: () -> *Viewport #foreign imgui_lib "?GetMainViewport@ImGui@@YAPEAUImGuiViewport@@XZ";
 GetMouseCursor                 :: () -> MouseCursor #foreign imgui_lib "?GetMouseCursor@ImGui@@YAHXZ";
+GetMouseDragDelta              :: (button: MouseButton = 0, lock_threshold : float = -1.0) -> ImVec2 #cpp_return_type_is_non_pod #foreign imgui_lib "?GetMouseDragDelta@ImGui@@YA?AUImVec2@@HM@Z"; 
+GetMousePos                    :: () -> ImVec2 #cpp_return_type_is_non_pod #foreign imgui_lib "?GetMousePos@ImGui@@YA?AUImVec2@@XZ"; 
+GetMousePosOnOpeningCurrentPopup :: () -> ImVec2 #cpp_return_type_is_non_pod #foreign imgui_lib "?GetMousePosOnOpeningCurrentPopup@ImGui@@YA?AUImVec2@@XZ"; 
 GetPlatformIO                  :: () -> *PlatformIO #foreign imgui_lib "?GetPlatformIO@ImGui@@YAAEAUImGuiPlatformIO@@XZ";
 GetScrollMaxX                  :: () -> float #foreign imgui_lib "?GetScrollMaxX@ImGui@@YAMXZ";
 GetScrollMaxY                  :: () -> float #foreign imgui_lib "?GetScrollMaxY@ImGui@@YAMXZ";
